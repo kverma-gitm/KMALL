@@ -1,0 +1,25 @@
+    <div>
+    <div ng-controller="StoreController">
+    	 <h2>Cart </h2>
+          <ul class="list-group" >
+          <table style="width:50%;margin-left : 20%">
+  <tr style="text-align: left">
+    <th>Name</th>
+    <th>Quantity</th> 
+    <th>Price</th>
+  </tr>
+  <tr  ng-repeat="c in cart">
+    <td><a  href="product_details.html"><img src={{c.image}} alt=""/></a>
+    <h4>{{c.name}}</h4>   </td>
+    <td>{{c.count}}</td>
+    <td>{{c.price*c.count | currency}}</td>
+    <td><input class="btn btn-danger" type="button" ng-click="removeItemCart(c)" value="Remove" /></td>
+  </tr>
+
+</table>
+          </ul>
+<h5 style="text-align: center;">Total : {{total | currency}}</h5>
+ <a style="margin-left: 40%;" class="btn btn-primary" href="#/buy"  >Buy</a>
+ <a style="margin-left: 15%" class="btn btn-danger"   href="#/" >Home</a>
+        </div>
+    </div>

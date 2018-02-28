@@ -1,0 +1,87 @@
+
+  <div >
+    <div ng-controller="StoreController">
+      <script type="text/javascript">
+        
+      </script>
+ 
+        <div ng-hide="PD" >
+          <h2  style="text-align: center;">Personal Details </h2>
+          <h3 style="text-align: center;">Name :  <input style="margin-left: 2% ; text-align: center" type="text" name="firstname" placeholder="Enter Name" ></h3>
+          <h3 style="text-align: center;">Email :  <input style="margin-left: 2%;text-align: center" type="email" name="email" placeholder ="Enter Email" ></h3>
+          <h3 style="text-align: center;">Phone :  <input style="margin-left: 2%;text-align: center" type="number" name="phone" placeholder ="Enter Phone No." ></h3>
+          <a style="margin-left: 25%" type="submit" class="btn btn-primary"  ng-click="Address=true ; PD=true" >Next</a></h4>
+          <a style="margin-left: 15%" class="btn btn-danger"   href="#/" >Go Back</a>
+          </div>
+
+           <div ng-show="Address" >
+          <h2  style="text-align: center;">Delivery Address </h2>
+          <h3 style="text-align: center;">  Address :  <input style="margin-left: 2%;text-align: center" type="text" name="Address" placeholder ="EnterAddress"></h3>
+          <h3 style="text-align: center;">  Country :  <input style="margin-left: 2%;text-align: center" type="text" name="Country" placeholder ="Enter Code"></h3>
+          <h3 style="text-align: center;">  State :  <input input style="margin-left: 5%;text-align: center" type="text" name="State" placeholder ="Enter Code"></h3>
+          <h3 style="text-align: center;">  City :  <input style="margin-left: 6%;text-align: center" type="text" id="state" name="City" placeholder="Enter State"></h3>
+          <a style="margin-left: 25%" class="btn btn-primary" ng-click="Address=false ; PD=false"  >Prev</a>
+          <a style="margin-left: 10%" class="btn btn-primary" ng-click="Payment=true ; Address=false" >Next</a>
+          <a style="margin-left: 10%" class="btn btn-primary" ng-click="Address2=true;Address=false ">My Location</a>
+        </div>
+
+
+          
+
+          <div ng-show="Address2" >
+          <h2  style="text-align: center;">Delivery Address </h2>
+          <h3 style="text-align: center;">  Address :  <input style="margin-left: 2%" type="text" name="Address" value={{address[0]}}{{address[1]}}></h3>
+          <h3 style="text-align: center;">  Country :  <input style="margin-left: 2%" type="text" name="Country" value ={{address[6]}}></h3>
+          <h3 style="text-align: center;">  State :  <input style="margin-left: 5%" type="text" id="state" name="State" value ={{address[5]}}></h3>
+          <h3 style="text-align: center;">  City :  <input  style="margin-left: 6%" type="text" name="City" value ={{address[4]}}></h3>
+          
+          <a style="margin-left: 25%" class="btn btn-primary" ng-click="Address2=false ; PD=false"  >Prev</a>
+          <a style="margin-left: 10%" class="btn btn-primary" ng-click="Payment=true ; Address2=false" >Next</a>
+
+
+          <a style="margin-left: 10%" class="btn btn-primary" ng-click="Address=false ; Address2=true" >My Location</a>
+          </div>
+
+          <div ng-show="Payment" >
+            <h2  style="text-align: center;">Payment Method </h2><br>
+            <h4  style="text-align: center;">Payment -  
+          <select>
+            <option value=" Credit Card">Credit Card</option>
+            <option value="Debit Card">Debit Card</option>
+            <option value="Cash On Delivery">Cash On Delivery</option>
+            <option value="Net Banking">Net Banking</option>
+          </select>
+        </h4>
+          <a style="margin-left: 25%" class="btn btn-primary" ng-click="Payment=false ; Address=true"  >Prev</a>
+          <a style="margin-left: 10%" class="btn btn-primary" ng-click="Payment=false ; Order=true" >Next</a>
+          </div>
+
+          <div ng-show="Order">
+            <h2  style="text-align: center;">Order Summery </h2>
+          <ul class="list-group" >
+          <table style="width:50%;margin-left : 20%">
+          <tr style="text-align: left">
+            <th>Name</th>
+            <th>Quantity</th> 
+            <th>Price</th>
+          </tr>
+          <tr  ng-repeat="p in cart">
+            <td><a  ><img src={{p.image}} alt=""/></a>
+            <h4>{{p.name}}</h4>   </td>
+            <td>{{p.count}}</td>
+            <td>{{p.price*p.count | currency}}</td>
+            <td><input class="btn btn-danger" type="button" ng-click="removeItemCart(p)" value="Remove" /></td>
+          </tr>
+
+        </table>
+                  </ul>
+        <h5 style="text-align: center;">Total : {{total | currency}}</h5>
+          <a style="margin-left: 25%" class="btn btn-primary" ng-click="Payment=true ; Order=false"  >Prev</a>
+          <a style="margin-left: 15%" class="btn btn-danger"  ng-click="removeAll()" href="#/checkout" >Confirm Order</a>
+          </div>
+
+        </div>
+    </div>
+
+
+    

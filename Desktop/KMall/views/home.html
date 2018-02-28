@@ -1,0 +1,22 @@
+<div ng-controller="StoreController">
+        <h4>Latest Products </h4>
+              <ul class="thumbnails">
+                <li class="span3" ng-repeat="product in products">
+                  <div class="thumbnail">
+                    <a href="#/buy" ng-init="addItemToCart(product)"><img src={{product.image}} alt=""/></a>
+                    <div class="caption">
+                      <h5>{{product.name}} </h5>
+                      <p> 
+                        Product Description. 
+                      </p>
+                     
+                      <h4 style="text-align:center"><h4 style="text-align: center;" >Price-{{product.price}}$</h4><a class="btn" ng-click="addItemToCart(product);add(address)" href="#/cart">Add to <i class="icon-shopping-cart"></i></a><a style="margin-left: 40%" class="btn btn-primary" href="#/buy" ng-click="addItemToCart(product)"  >BUY</a></h4>
+                    </div>
+                  </div>
+                </li>
+
+
+        </div>
+        </div>
+    </div>
+</div>
